@@ -40,3 +40,29 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+/npm-debug.log
+/yarn-error.log
+
+# IDEs and editors
+/.idea
+/.vscode
+/.DS_Store
+/.suo
+/.ntvs_analysis.dat
+/*.sln
+/*.sw?    # Auto-generated crash dump files
+/*.log   # Log files
