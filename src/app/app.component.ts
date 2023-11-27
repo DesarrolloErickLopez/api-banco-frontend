@@ -19,8 +19,8 @@ export class AppComponent {
   noTarjeta: string = '';
   nip: string = '';
   monto: number | null = null;
-  mensajeFinalizacion: string = '';
-  camposLlenos: boolean = true;
+ 
+ 
   mensaje: string = '';
 
   constructor(private bancoService: BancoService) { }
@@ -37,32 +37,26 @@ export class AppComponent {
   validarSoloNumeros(event: KeyboardEvent) {
     const pattern = /[0-9]/;
     const inputChar = String.fromCharCode(event.charCode);
-
     if (!pattern.test(inputChar)) {
       event.preventDefault();
     }
   }
 
+  
   realizarRetiro() {
-    if (this.banco && this.noTarjeta && this.nip && this.monto !== null) {
-      console.log('Esta es la info que llega al component:');
-      console.log('Banco:', this.banco);
-      console.log('No Tarjeta:', this.noTarjeta);
-      console.log('NIP:', this.nip);
-      console.log('Monto:', this.monto);
-      const datosEnviados = this.bancoService.realizarRetiro(this.banco, this.noTarjeta, this.nip, this.monto);
-      
-      console.log('Datos enviados al servicio:', datosEnviados);
-
-     
-    } else {
-      this.mensajeFinalizacion = 'Saldo insuficiente';
+    if (this.banco.trim() !== '' && this.noTarjeta.trim() !== '' && this.nip.trim() !== '' && this.monto !== null) {
+      this.bancoService.Retiro({
+        banco: this.banco,
+        noTarjeta: this.noTarjeta,
+        nip: this.nip,
+        monto: this.monto,
+      });
     }
   }
-
-
-
 }
+
+
+
 
 
 

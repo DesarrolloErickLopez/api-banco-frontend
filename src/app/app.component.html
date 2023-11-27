@@ -17,10 +17,10 @@
       <label for="monto">Monto:</label>
       <input type="number" id="monto" name="monto" [(ngModel)]="monto" (keypress)="validarSoloNumeros($event)" required>
     </div>
-    <button type="submit" [disabled]="!camposLlenos">Retirar</button>
-    <p *ngIf="!camposLlenos" style="color: red;">Todos los campos deben llenarse</p>
+    <button type="submit" >Retirar</button>
+    <p  style="color: red;">Todos los campos deben llenarse</p>
     <div class="cuadro-texto">
-      <p *ngIf="mensajeFinalizacion">{{ mensajeFinalizacion }}</p>
+    
     </div>
   </form>
 </div>
